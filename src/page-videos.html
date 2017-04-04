@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
-<dom-module id="my-view3">
+<dom-module id="page-videos">
 
   <template>
 
@@ -19,36 +19,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
         padding: 10px;
       }
-      .card {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 16px;
+
+      .youtubeVideo {
         margin: 24px;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #757575;
       }
-      .circle {
-        display: inline-block;
-        height: 64px;
-        width: 64px;
-        border-radius: 50%;
-        background: #ddd;
-        line-height: 64px;
-        font-size: 30px;
-        color: #555;
-        text-align: center;
-      }
-      h1 {
-        font-size: 22px;
-        margin: 16px 0;
-        color: #212121;
-      }
+    
     </style>
 
-    <div class="card">
-      <h1>Shows</h1>
-      <p>A list of upcoming shows, bringing Mason Cos to Earth</p>
-    </div>
+    <google-youtube
+      video-id="rIZnQ2HeDD8"
+      height="270px"
+      width="480px"
+      class="youtubeVideo">
+    </google-youtube>
+
+    <google-youtube
+      video-id="GFoxf7y9iSA"
+      height="270px"
+      width="480px"
+      class="youtubeVideo">
+    </google-youtube>
 
   </template>
 
@@ -56,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
 
-      is: 'my-view3'
+      is: 'page-videos'
 
     });
 

@@ -36,8 +36,56 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-secondary-color: black;
       }
 
+      app-drawer-layout:-webkit-full-screen-ancestor app-header,
+      app-drawer-layout:-webkit-full-screen-ancestor app-drawer {
+        z-index: -1 !important;
+      }
+
+    
+
+      app-toolbar {
+        height: auto;
+      }
+
+      #menuToolbar {
+        height: 89px;
+        background-color: rgba(0,0,0,0.10);
+        color: rgba(0,0,0,0.6);
+        text-align: center;
+        font-size: 14px;
+      }
+
+      #menuToolbar .outerDiv {
+        width: 100%;
+      }
+
+      #menuToolbar .outerDiv .top {
+        font-size: 12px;
+        letter-spacing: 3px;
+      }
+
+      #menuToolbar .outerDiv .middleLine {
+        border: none;
+        padding-bottom: 1px;
+        width: 105px;
+        background-color: rgba(226, 116, 52, 0.59);
+      }
+
+      #menuToolbar .outerDiv .bottom {
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      app-drawer {
+        --app-drawer-content-container: {
+          background-color: #eaeaea;
+          border-right: 1px solid rgba(0,0,0,0.25);
+        }
+        --app-drawer-scrim-background: rgba(0,0,0,0.7);
+      }
+
       app-header {
-        background-color: black;
+        background-color: rgb(14, 14, 13);
         color: #fff;
       }
       app-header paper-icon-button {
@@ -45,21 +93,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .drawer-list {
-        margin: 0 20px;
+        margin: 0;
       }
+
       .drawer-list a {
         display: block;
-        padding: 0 16px;
+        padding: 20px 0px;
         line-height: 40px;
         text-decoration: none;
-        color: var(--app-secondary-color);
+        color: rgba(0,0,0,0.75);
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+        font-size: 16px;
+        letter-spacing: 1px;
       }
-      .drawer-list a.iron-selected {
-        color: black;
-        font-weight: bold;
+      .drawer-list .menuItem.iron-selected {
+        color: #e27434;
+        background-color: white;
       }
       .drawer-list a.subroute {
         padding-left: 32px;
+      }
+
+      .logoContainer {
+        padding: 10px 0;
+      }
+      .logoContainer img {
+        height: 60px;
       }
 
 
@@ -75,12 +135,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-drawer-layout fullbleed>
 
       <!-- Drawer content -->
-      <app-drawer>
-        <app-toolbar>Menu</app-toolbar>
+      <app-drawer class="drawerClass">
+        <app-toolbar id="menuToolbar">
+          <div class="outerDiv">
+            <div class="top">ELECTRONIC JAMS</div>
+            <hr class="middleLine">
+            <div class="bottom">CHICAGO</div>
+          </div>
+          
+
+        </app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">About</a>
-          <a name="view2" href="/view2">Media</a>
-          <a name="view3" href="/view3">Shows</a>
+          <a class="menuItem" name="home" href="/home">Home</a>
+          <a class="menuItem" name="releases" href="/releases">Releases</a>
+          <a class="menuItem" name="music" href="/music">Music</a>
+          <a class="menuItem" name="videos" href="/videos">Videos</a>
         </iron-selector>
       </app-drawer>
 
@@ -90,14 +159,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <div title>MASON COS</div>
+            <div class="logoContainer">
+              <img src="/images/sticker-logo.jpg">
+            </div>
           </app-toolbar>
         </app-header>
 
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
+          <page-home name="home"></page-home>
+          <page-releases name="releases"></page-releases>
+          <page-music name="music"></page-music>
+          <page-videos name="videos"></page-videos>
         </iron-pages>
 
       </app-header-layout>
@@ -127,13 +199,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+        this.page = page || 'home';
       },
 
       _pageChanged: function(page) {
         // load page import on demand.
         this.importHref(
-          this.resolveUrl('my-' + page + '.html'), null, null, true);
+          this.resolveUrl('page-' + page + '.html'), null, null, true);
       }
 
     });
