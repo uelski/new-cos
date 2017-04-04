@@ -9,18 +9,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="app-styles.html">
 
 <dom-module id="page-home">
 
   <template>
 
-    <style>
+    <style is="custom-style" include="app-styles">
       :host {
         display: block;
         padding: 10px;
       }
 
     </style>
+
+    <div class="pageContainer">
+      <div class="pageHeader">About</div>
+      <hr class="headerHr">
+    </div>
+
+    
 
 
   </template>

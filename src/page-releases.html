@@ -9,25 +9,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="app-styles.html">
 
 <dom-module id="page-releases">
 
   <template>
 
-    <style>
+    <style is="custom-style" include="app-styles">
       :host {
         display: block;
         padding: 10px;
       }
 
-      .bandcamp {
-        margin: 24px;
-      }
+      
 
     </style>
 
+    <div class="pageContainer">
+      <div class="pageHeader">Latest Releases</div>
+      <hr class="headerHr">
+      
+      <iframe class="bandcamp" style="border: 0; width: 400px; height: 605px;" src="https://bandcamp.com/EmbeddedPlayer/album=3127878489/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="http://masoncos.bandcamp.com/album/das-ep">Das EP by Mason Cos</a></iframe>
+    </div>
 
-    <iframe class="bandcamp" style="border: 0; width: 400px; height: 605px;" src="https://bandcamp.com/EmbeddedPlayer/album=3127878489/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="http://masoncos.bandcamp.com/album/das-ep">Das EP by Mason Cos</a></iframe>
+    
 
 
     
