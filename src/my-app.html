@@ -13,6 +13,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-scrollpos-control/app-scrollpos-control.html">
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
@@ -20,11 +21,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+
 <link rel="import" href="../bower_components/google-youtube/google-youtube.html">
 
 <link rel="import" href="my-icons.html">
 
 <link rel="import" href="app-styles.html">
+
+<link rel="import" href="page-home.html">
+
+<!-- <link rel="import" href="page-releases.html"> -->
+
+<link rel="import" href="page-music.html">
+
+<link rel="import" href="page-videos.html">
+
+<link rel="import" href="view-footer.html">
 
 <dom-module id="my-app">
 
@@ -106,7 +119,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: rgba(0,0,0,0.75);
         border-bottom: 1px solid rgba(0,0,0,0.25);
         text-align: center;
-        font-size: 16px;
+        font-size: 14px;
         letter-spacing: 1px;
       }
       .drawer-list .menuItem.iron-selected {
@@ -124,6 +137,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         height: 60px;
       }
 
+      .ironPagesClass {
+        min-height: 800px;
+      }
+
 
     </style>
 
@@ -133,6 +150,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         pattern="/:page"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
+
 
     <app-drawer-layout fullbleed>
 
@@ -147,6 +165,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           
 
         </app-toolbar>
+
+
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a class="menuItem" name="home" href="/home">Home</a>
           <a class="menuItem" name="releases" href="/releases">Releases</a>
@@ -158,7 +178,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Main content -->
       <app-header-layout has-scrolling-region>
 
-        <app-header condenses reveals effects="waterfall">
+        <app-header condenses reveals effects="waterfall" id="appHeaderId">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <div class="logoContainer">
@@ -167,12 +187,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </app-toolbar>
         </app-header>
 
-        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+        <iron-pages class="ironPagesClass" role="main" selected="[[page]]" attr-for-selected="name">
           <page-home name="home"></page-home>
           <page-releases name="releases"></page-releases>
           <page-music name="music"></page-music>
           <page-videos name="videos"></page-videos>
         </iron-pages>
+
+        <view-footer></view-footer>
 
       </app-header-layout>
 
@@ -206,8 +228,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _pageChanged: function(page) {
         // load page import on demand.
-        this.importHref(
-          this.resolveUrl('page-' + page + '.html'), null, null, true);
+
+        if (page === 'releases') {
+
+          this.importHref(
+            this.resolveUrl('page-' + page + '.html'), null, null, true);
+        }
+
       }
 
     });

@@ -1,0 +1,84 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="app-styles.html">
+
+<dom-module id="view-footer">
+
+  <template>
+
+    <style is="custom-style" include="app-styles">
+      :host {
+        display: block;
+        /*padding: 10px;*/
+      }
+
+      .footerToolbar {
+        @apply(--font-family-secondary);
+        border-top: 1px solid rgba(120, 144, 156, 0.65);
+        background-color: rgba(120, 144, 156, 0.2);
+        @apply(--color-faded-black);
+      }
+
+      .iconClass { 
+        padding-left: 26px;
+        padding-top: 0px;
+        height: 38px;
+        width: 40px;
+        padding-right: 10px;
+      }
+
+      .iconContainer .iconImg {
+        padding: 5px 10px;
+        height: 30px;
+        width: auto;
+      }
+
+      .iconContainer {
+        padding-top: 5px;
+      }
+
+      .iconLink {
+        text-decoration: none;
+        @apply(--color-faded-black);
+      }
+
+    </style>
+
+    <app-toolbar class="footerToolbar">
+      <!-- <div main-title>Mason Cos</div> -->
+      <a class="iconLink" href="mailto:masoncosband@gmail.com"><iron-icon class="iconClass" icon="communication:mail-outline"></iron-icon></a>
+      <div class="iconContainer">
+        <a href="https://masoncos.bandcamp.com/" target="_blank"><img class="iconImg" src="/images/bandcamp-logo.png"></a>
+        <a href="https://soundcloud.com/mason-cos" target="_blank"><img class="iconImg" src="/images/soundcloud-logo.png"></a>
+        <a href="https://www.youtube.com/channel/UCv-nxA6-TdfLdRba82LB21g" target="_blank"><img class="iconImg" src="/images/youtube-logo.png"></a>
+        <a href="https://www.facebook.com/MasonCosMusic/" target="_blank"><img class="iconImg" src="/images/fb-logo.png"></a>
+        <a href="https://github.com/uelski/new-cos" target="_blank"><img class="iconImg" src="/images/github-logo.png"></a>
+      </div>
+
+    </app-toolbar>
+
+    
+
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'view-footer'
+
+    });
+
+  </script>
+
+</dom-module>

@@ -7,15 +7,30 @@
     /*font-family: 'Raleway', sans-serif;
     font-family: 'Lato', sans-serif*/;
 
+      :root {
+         --font-family-main: {
+          font-family: 'Roboto';
+        }
+
+         --font-family-secondary: {
+          font-family: 'Raleway', sans-serif;
+        }
+
+        --color-faded-black: {
+          color: rgba(0,0,0,0.7);
+        }
+
+      };
+
       .pageContainer {
         margin: 24px;
         max-width: 900px;
       }
 
       .pageHeader {
+        @apply(--font-family-secondary);
+        @apply(--color-faded-black);
         font-size: 24px;
-        color: rgba(0,0,0,0.75);
-        font-family: 'Raleway', sans-serif;
       }
 
       .headerHr {
