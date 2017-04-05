@@ -23,7 +23,7 @@
       };
 
       .pageContainer {
-        margin: 24px;
+        margin: 50px;
         max-width: 900px;
       }
 
@@ -38,6 +38,27 @@
         padding: 1px;
         background-color: rgba(0,0,0,0.50);
         margin: 15px 0 20px 0;
+      }
+
+
+      @media only screen and (max-width: 700px) {
+        .logoContainer img {
+          margin-left: 75px;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        .pageContainer {
+          margin: 10px auto;
+          width: 90%;
+        }
+        .footerToolbar {
+          padding-left: 25px;
+        }
+      }
+
+      @media only screen and (max-width: 321px) {
+
       }
       
 

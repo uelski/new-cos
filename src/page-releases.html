@@ -18,10 +18,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style is="custom-style" include="app-styles">
       :host {
         display: block;
-        padding: 10px;
       }
 
-      
+      .bandcamp {
+        border: 0;
+        width: 390px;
+        height: 595px;
+      }
+
+      @media only screen and (max-width: 480px) {
+        .bandcamp {
+          width: 300px;
+          height: 505px;
+        }
+      }
 
     </style>
 
@@ -29,8 +39,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <div class="pageHeader">Latest Releases</div>
       <hr class="headerHr">
-
-      <iframe class="bandcamp" style="border: 0; width: 400px; height: 605px;" src="https://bandcamp.com/EmbeddedPlayer/album=3127878489/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="http://masoncos.bandcamp.com/album/das-ep">Das EP by Mason Cos</a></iframe>
+      <iframe class="bandcamp" src="https://bandcamp.com/EmbeddedPlayer/album=3127878489/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="http://masoncos.bandcamp.com/album/das-ep">Das EP by Mason Cos</a></iframe>
     </div>
 
     

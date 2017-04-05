@@ -18,11 +18,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style is="custom-style" include="app-styles">
       :host {
         display: block;
-        padding: 10px;
       }
 
       .soundCloud {
         margin-bottom: 20px;
+      }
+
+      @media only screen and (max-width: 480px) {
+        .soundCloud {
+          width: 100%;
+        }
       }
 
 

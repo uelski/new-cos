@@ -26,19 +26,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         border-top: 1px solid rgba(120, 144, 156, 0.65);
         background-color: rgba(120, 144, 156, 0.2);
         @apply(--color-faded-black);
+        padding: 0;
+        padding-left: 50px;
       }
 
       .iconClass { 
-        padding-left: 26px;
-        padding-top: 0px;
-        height: 38px;
-        width: 40px;
+        height: 30px;
+        width: 30px;
         padding-right: 10px;
       }
 
       .iconContainer .iconImg {
         padding: 5px 10px;
-        height: 30px;
+        height: 24px;
         width: auto;
       }
 
@@ -49,6 +49,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .iconLink {
         text-decoration: none;
         @apply(--color-faded-black);
+      }
+
+       @media only screen and (max-width: 480px) {
+
+        .footerToolbar {
+          padding-left: 25px;
+        }
       }
 
     </style>
