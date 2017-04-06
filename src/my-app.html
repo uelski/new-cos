@@ -163,6 +163,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding-left: 32px;
       }
 
+      .drawer-list.mobile {
+        display: none;
+      }
+
+      @media only screen and (max-width: 700px) {
+        .drawer-list.desktop {
+          display: none;
+        }
+        .drawer-list.mobile {
+          display: block;
+        }
+      }
+
       .logoContainer {
         padding: 10px 0;
       }
@@ -201,7 +214,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </app-toolbar>
 
 
-        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list desktop" role="navigation">
+          <a class="menuItem" name="home" href="/home">Home</a>
+          <a class="menuItem" name="releases" href="/releases">Releases</a>
+          <a class="menuItem" name="music" href="/music">Music</a>
+          <a class="menuItem" name="videos" href="/videos">Videos</a>
+        </iron-selector>
+
+        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list mobile" role="navigation">
           <a class="menuItem" name="home" href="/home" drawer-toggle>Home</a>
           <a class="menuItem" name="releases" href="/releases" drawer-toggle>Releases</a>
           <a class="menuItem" name="music" href="/music" drawer-toggle>Music</a>
