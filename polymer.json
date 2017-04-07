@@ -6,5 +6,12 @@
     "src/page-releases.html",
     "src/page-music.html",
     "src/page-videos.html"
+  ],
+   "sources": [
+	  "bower_components/**/*",
+	  "src/*",
+	  "images/*",
+	  "downloads/*",
+	  "bower.json"
   ]
 }
